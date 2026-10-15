@@ -15,5 +15,19 @@ fn main() {
         }
 
         handle.await.unwrap();
+
+        let fut1 = async {
+            for i in 1..10 {
+                println!("hi number {i} in the first task!");
+            }
+        };
+
+        let fut2 = async {
+            for i in 1..5 {
+                println!("hi number {i} in the second task!");
+            }
+        };
+
+        trpl::join(fut1, fut2).await;
     });
 }

@@ -1,5 +1,9 @@
 use std::time::Duration;
 
+async fn timeout<F: Future>(future_to_try: F, max_time: Duration) -> Result<F:Output, Duration> {
+    // Code
+}
+
 fn main() {
     trpl::block_on(async {
         let slow = async {

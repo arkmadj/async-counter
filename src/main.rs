@@ -83,20 +83,20 @@ fn main() {
             println!("'a' started.");
             slow("a", 30);
             trpl::sleep(one_ms).await;
-            slow("a", 30);
+            slow("a", 10);
             trpl::sleep(one_ms).await;
-            slow("a", 30);
+            slow("a", 20);
             trpl::sleep(one_ms).await;
             println!("'a' finished.");
         };
 
         let b = async {
             println!("'b' started.");
-            slow("b", 30);
+            slow("b", 75);
             trpl::sleep(one_ms).await;
-            slow("b", 30);
+            slow("b", 10);
             trpl::sleep(one_ms).await;
-            slow("b", 30);
+            slow("b", 15);
             trpl::sleep(one_ms).await;
             println!("'b' finished.");
         };

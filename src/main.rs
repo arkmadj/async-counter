@@ -86,12 +86,12 @@ fn main() {
         };
 
         let b = async {
-            println!("'a' started.");
-            slow("a", 30);
-            slow("a", 30);
-            slow("a", 30);
+            println!("'b' started.");
+            slow("b", 30);
+            slow("b", 30);
+            slow("b", 30);
             trpl::sleep(Duration::from_millis(50)).await;
-            println!("'a' finished.");
+            println!("'b' finished.");
         };
 
         trpl::select(a, b).await;

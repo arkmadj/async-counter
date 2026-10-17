@@ -1,13 +1,4 @@
-use std::time::Duration;
-
 use trpl::StreamExt;
-
-async fn timeout<F: Future>(future_to_try: F, max_time: Duration) -> Result<F::Output, Duration> {
-    match trpl::select(future_to_try, trpl::sleep(max_time)).await {
-        trpl::Either::Left(output) => Ok(output),
-        trpl::Either::Right(_) => Err(max_time),
-    }
-}
 
 fn main() {
     trpl::block_on(async {
